@@ -1,6 +1,5 @@
 {{ config(
-    materialized='table',
-    schema='staging'
+    materialized='table'
 ) }}
 
 WITH source AS (
@@ -16,7 +15,9 @@ transformed AS (
         total_views AS no_views,
         total_videos AS no_videos,
         country,
-        published_at AS published_at_ts
+        published_at AS published_at_ts,
+        TO_DATE(published_at) AS published_date,
+        TO_CHAR(published_at, 'HH24:MI:SS') AS published_time
     FROM source
 )
 SELECT * FROM transformed
