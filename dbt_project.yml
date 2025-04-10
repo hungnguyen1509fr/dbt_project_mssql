@@ -16,3 +16,5 @@ models:
     +materialized: table
   staging:
     +schema: "YOUTUBE.STAGING" 
+  raw:
+    +schema: "raw"
