@@ -12,9 +12,11 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  my_dbt_project:
-    +materialized: table
-  staging:  # This part must be correctly scoped to the project
-    +schema: "YOUTUBE.STAGING"  # Correctly placing models in the YOUTUBE.STAGING schema
-  raw:
-    +schema: "raw"
+  YOUTUBE:  # This is the top-level project namespace, which is usually the same as your project name
+    +materialized: table  # Default materialization for all models
+
+  staging:  # This refers to the "staging" models folder inside the "models" directory
+    +schema: "YOUTUBE.STAGING"  # Models in this folder will be placed in the "YOUTUBE.STAGING" schema
+
+  raw:  # This refers to the "raw" models folder inside the "models" directory
+    +schema: "raw"  # Models in this folder will be placed in the "raw" schema
