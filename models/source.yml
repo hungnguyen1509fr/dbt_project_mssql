@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: YOUTUBE  
+    database: YOUTUBE  # Specify the Snowflake database name here
+    schema: RAW        # Specify the schema where your tables exist
+    tables:
+      - name: YOUTUBE_CHANNEL_METRICS  
+      - name: YOUTUBE_VIDEO_METRICS  
