@@ -1,27 +1,26 @@
+{{ config(
+    materialized='table',
+    schema='staging'
+) }}
 
-
-with source as (
-    select *
-    from {{ source('YOUTUBE', 'YOUTUBE_CHANNEL_METRICS') }}
+WITH source AS (
+    SELECT *
+    FROM {{ source('YOUTUBE', 'YOUTUBE_CHANNEL_METRICS') }}
 ),
 
-transformed as (
-    select
-        channel_id as ID,
-        channel_title as Team,
-        subscribers as Subscribers,
-        total_views as No_Views,
-        total_videos as No_Videos,
+transformed AS (
+    SELECT
+        channel_id AS id,
+        channel_title AS team,
+        subscribers AS subscribers,
+        total_views AS no_views,
+        total_videos AS no_videos,
         country,
         
-        -- Convert 'published_at' to Snowflake TIMESTAMP type
-        try_to_timestamp_ntz(published_at) as published_at_ts,
-
-        -- Split 'published_at' into date and time
-        to_date(try_to_timestamp_ntz(published_at)) as published_date,
-        to_char(try_to_timestamp_ntz(published_at), 'HH24:MI:SS') as published_time
-
-    from source
+        published_at AS published_at_ts,
+        TO_DATE(published_at) AS published_date,
+        TO_CHAR(published_at, 'HH24:MI:SS') AS published_time
+    FROM source
 )
 
-select * from transformed
+SELECT * FROM transformed;
