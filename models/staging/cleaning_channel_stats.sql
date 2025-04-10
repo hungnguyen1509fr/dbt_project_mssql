@@ -1,6 +1,5 @@
 {{ config(
-    materialized='table',
-    schema='staging'
+    materialized='table'
 ) }}
 
 WITH source AS (
@@ -19,4 +18,4 @@ transformed AS (
         published_at AS published_at_ts
     FROM source
 )
-SELECT * FROM transformed;
+SELECT * FROM transformed
