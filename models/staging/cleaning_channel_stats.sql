@@ -21,6 +21,4 @@ transformed AS (
         TO_DATE(published_at) AS published_date,
         TO_CHAR(published_at, 'HH24:MI:SS') AS published_time
     FROM source
-)
-
-SELECT * FROM transformed;
+);
