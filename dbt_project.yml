@@ -15,6 +15,6 @@ models:
   my_dbt_project:
     +materialized: table
   staging:  # This part must be correctly scoped to the project
-    +schema: "YOUTUBE.STAGING"  # Correctly placing models in the YOUTUBE.STAGING schema
+    +schema: "staging"  # Correctly placing models in the YOUTUBE.STAGING schema
   raw:
     +schema: "raw"
