@@ -12,7 +12,7 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  my_dbt_project:
+  YOUTUBE:
     +materialized: table
   staging:  # This part must be correctly scoped to the project
     +schema: "YOUTUBE.STAGING"  # Correctly placing models in the YOUTUBE.STAGING schema

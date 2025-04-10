@@ -1,8 +1,3 @@
-{{ config(
-    materialized='table',
-    schema='staging'
-) }}
-
 WITH source AS (
     SELECT *
     FROM {{ source('YOUTUBE', 'YOUTUBE_CHANNEL_METRICS') }}
@@ -16,7 +11,6 @@ transformed AS (
         total_views AS no_views,
         total_videos AS no_videos,
         country,
-        
         published_at AS published_at_ts,
         TO_DATE(published_at) AS published_date,
         TO_CHAR(published_at, 'HH24:MI:SS') AS published_time
