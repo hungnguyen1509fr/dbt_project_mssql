@@ -14,7 +14,7 @@ clean-targets:
 models:
   my_dbt_project:
     +materialized: table
-  my_dbt_project.staging:  # This part must be correctly scoped to the project
+  staging:  # This part must be correctly scoped to the project
     +schema: "YOUTUBE.STAGING"  # Correctly placing models in the YOUTUBE.STAGING schema
-  my_dbt_project.raw:
+  raw:
     +schema: "raw"
