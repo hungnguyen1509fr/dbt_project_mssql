@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: YOUTUBE
+    database: YOUTUBE  # The database where your table is located
+    schema: RAW        # The schema where your table is located
+    tables:
+      - name: YOUTUBE_CHANNEL_METRICS
+        description: "Table containing YouTube channel metrics"
+
+  - name: YOUTUBE
+    database: YOUTUBE  # The same database
+    schema: RAW        # The same schema
+    tables:
+      - name: YOUTUBE_VIDEO_METRICS
+        description: "Table containing YouTube video metrics"
