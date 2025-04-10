@@ -1,6 +1,6 @@
 -- models/raw/youtube_video_metrics.sql
 
-CREATE OR REPLACE TABLE RAW.YOUTUBE_VIDEO_METRICS_RAW AS
+CREATE OR REPLACE TABLE RAW.YOUTUBE_VIDEO_METRICS AS
 SELECT 
     $1::TEXT AS brand,
     $2::TEXT AS video_id,
@@ -13,3 +13,4 @@ SELECT
 FROM 
     @YOUTUBE.RAW.MY_INTERNAL_STAGE/youtube_video_metrics.csv
     (FILE_FORMAT => 'YOUTUBE.RAW.VIDEO');
+
