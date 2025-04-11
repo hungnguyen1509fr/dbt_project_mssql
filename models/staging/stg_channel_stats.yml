@@ -12,6 +12,8 @@ models:
         description: "The name of the YouTube channel."
       - name: PUBLISHED_AT_TS
         description: "Timestamp when the data was collected."
+        tests:
+          -- not_null
       - PUBLISHED_DATE
         description: " Date extracted from timestamp"
       - PUBLISHED_TIME
