@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_video_stats
-    description: "This model transforms raw YouTube channel metrics, cleaning and filtering the data."
+    description: "This model transforms raw YouTube video metrics, cleaning and filtering the data."
     columns:
       - name: VID_ID
         description: "Unique identifier for the YouTube video."
@@ -21,7 +21,7 @@ models:
         tests:
           - not_null
       - name: COUNT_COMMENTS
-        description: "Count of Comment"
+        description: "Count of comments"
         tests:
           - not_null
       - name: PUBLISHED_AT_TS
@@ -37,10 +37,10 @@ models:
         tests:
           - not_null
       - name: Duration_minutes
-        description: "minutes extracted from the videos"
+        description: "Minutes extracted from the video"
       - name: Duration_seconds
-        description: "seconds extracted from the videos"
+        description: "Seconds extracted from the video"
       - name: Duration_mmss
-        description: "Combine minutes and second to appropiate format"
+        description: "Combine minutes and seconds into appropriate format"
         tests:
           - not_null
