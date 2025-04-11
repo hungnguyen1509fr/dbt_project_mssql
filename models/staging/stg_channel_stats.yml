@@ -13,10 +13,10 @@ models:
       - name: PUBLISHED_AT_TS
         description: "Timestamp when the data was collected."
         tests:
-          -- not_null
-      - PUBLISHED_DATE
-        description: " Date extracted from timestamp"
-      - PUBLISHED_TIME
+          - not_null  # Uncomment this line if you want to test for null values
+      - name: PUBLISHED_DATE
+        description: "Date extracted from timestamp"
+      - name: PUBLISHED_TIME
         description: "Time extracted from timestamp"
       - name: SUBSCRIBERS
         description: "Number of subscribers for the YouTube channel."
