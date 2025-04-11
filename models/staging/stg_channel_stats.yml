@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_youtube_channel_metrics
+  - name: stg_channel_stats
     description: "This model transforms raw YouTube channel metrics, cleaning and filtering the data."
     columns:
       - name: ID
