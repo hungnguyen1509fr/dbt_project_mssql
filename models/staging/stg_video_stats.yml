@@ -13,11 +13,11 @@ models:
       - name: TITLE
         description: "Title of the video"
       - name: COUNT_VIEWS
-        description: " Count of views"
+        description: "Count of views"
         tests:
           - not_null
       - name: COUNT_LIKES
-        description:" Count of likes"
+        description: "Count of likes"
         tests:
           - not_null
       - name: COUNT_COMMENTS
@@ -27,7 +27,7 @@ models:
       - name: PUBLISHED_AT_TS
         description: "Timestamp when the data was collected."
         tests:
-          - not_null 
+          - not_null
       - name: PUBLISHED_DATE
         description: "Date extracted from timestamp"
       - name: PUBLISHED_TIME
@@ -37,14 +37,14 @@ models:
         tests:
           - not_null
       - name: Duration
-        description:' Duration of the video'
+        description: "Duration of the video"
         tests:
           - not_null
       - name: Duration_minutes
-        description:' minutes extracted from the videos'
+        description: "minutes extracted from the videos"
       - name: Duration_seconds
-        description:' seconds extracted from the videos'
+        description: "seconds extracted from the videos"
       - name: Duration_mmss
-        description: ' Combine minutes and second to appropiate format'
+        description: "Combine minutes and second to appropiate format"
         tests:
           - not_null
