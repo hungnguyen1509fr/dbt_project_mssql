@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_youtube_channel_metrics
+    description: "This model transforms raw YouTube channel metrics, cleaning and filtering the data."
+    columns:
+      - name: ID
+        description: "Unique identifier for the YouTube channel."
+        tests:
+          - not_null
+      - name: TEAM
+        description: "The name of the YouTube channel."
+      - name: PUBLISHED_AT_TS
+        description: "Timestamp when the data was collected."
+      - PUBLISHED_DATE
+        description: " Date extracted from timestamp"
+      - PUBLISHED_TIME
+        description: "Time extracted from timestamp"
+      - name: SUBSCRIBERS
+        description: "Number of subscribers for the YouTube channel."
+        tests:
+          - not_null
+      - name: NO_VIEWS
+        description: "Total number of views for the YouTube channel."
+      - name: NO_VIDEOS
+        description: "Total number of videos uploaded by the channel."
+      - name: COUNTRY
+        description: "Country of the YouTube channel."
