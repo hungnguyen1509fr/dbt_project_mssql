@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg_video_stats
+    description: "This model transforms raw YouTube channel metrics, cleaning and filtering the data."
+    columns:
+      - name: VID_ID
+        description: "Unique identifier for the YouTube video."
+        tests:
+          - not_null
+      - name: TEAM
+        description: "The name of the YouTube channel."
+      - name: TITLE
+        description: "Title of the video"
+      - name: COUNT_VIEWS
+        description: " Count of views"
+        tests:
+          - not_null
+      - name: COUNT_LIKES
+        description:" Count of likes"
+        tests:
+          - not_null
+      - name: COUNT_COMMENTS
+        description: "Count of Comment"
+        tests:
+          - not_null
+      - name: PUBLISHED_AT_TS
+        description: "Timestamp when the data was collected."
+        tests:
+          - not_null 
+      - name: PUBLISHED_DATE
+        description: "Date extracted from timestamp"
+      - name: PUBLISHED_TIME
+        description: "Time extracted from timestamp"
+      - name: SUBSCRIBERS
+        description: "Number of subscribers for the YouTube channel."
+        tests:
+          - not_null
+      - name: Duration
+        description:' Duration of the video'
+        tests:
+          - not_null
+      - name: Duration_minutes
+        description:' minutes extracted from the videos'
+      - name: Duration_seconds
+        description:' seconds extracted from the videos'
+      - name: Duration_mmss
+        description: ' Combine minutes and second to appropiate format'
+        tests:
+          - not_null
