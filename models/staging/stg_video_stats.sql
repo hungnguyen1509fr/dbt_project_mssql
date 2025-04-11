@@ -19,31 +19,44 @@ transformed AS (
         CAST(published_at AS DATE) AS published_date,
         TO_CHAR(published_at, 'HH24:MI:SS') AS published_time,
         duration,
-
-        -- Extract minutes using basic pattern 'PTxxM'
+        
+        -- Extract hours from duration
+        COALESCE(
+            TRY_TO_NUMBER(
+                REGEXP_SUBSTR(duration, 'PT([0-9]+)H', 1, 1, 'e', 1)
+            ), 0
+        ) AS duration_hours,
+        
+        -- Extract minutes from duration
         COALESCE(
             TRY_TO_NUMBER(
                 REGEXP_SUBSTR(duration, 'PT([0-9]+)M', 1, 1, 'e', 1)
             ), 0
         ) AS duration_minutes,
 
-        -- Extract seconds using basic pattern 'xxS'
+        -- Extract seconds from duration
         COALESCE(
             TRY_TO_NUMBER(
                 REGEXP_SUBSTR(duration, '([0-9]+)S', 1, 1, 'e', 1)
             ), 0
         ) AS duration_seconds,
 
-        -- Combine mm:ss
-        LPAD(
-            COALESCE(
-                TRY_TO_NUMBER(REGEXP_SUBSTR(duration, 'PT([0-9]+)M', 1, 1, 'e', 1)), 0
-            ), 2, '0'
-        ) || ':' || LPAD(
-            COALESCE(
-                TRY_TO_NUMBER(REGEXP_SUBSTR(duration, '([0-9]+)S', 1, 1, 'e', 1)), 0
-            ), 2, '0'
-        ) AS duration_mmss
+        -- Combine hours, minutes, and seconds into a HH:MM:SS format
+        LPAD(COALESCE(
+                TRY_TO_NUMBER(
+                    REGEXP_SUBSTR(duration, 'PT([0-9]+)H', 1, 1, 'e', 1)
+                ), 0
+            ), 2, '0') || ':' || 
+        LPAD(COALESCE(
+                TRY_TO_NUMBER(
+                    REGEXP_SUBSTR(duration, 'PT([0-9]+)M', 1, 1, 'e', 1)
+                ), 0
+            ), 2, '0') || ':' ||
+        LPAD(COALESCE(
+                TRY_TO_NUMBER(
+                    REGEXP_SUBSTR(duration, '([0-9]+)S', 1, 1, 'e', 1)
+                ), 0
+            ), 2, '0') AS duration_hhmmss
 
     FROM source
 )
