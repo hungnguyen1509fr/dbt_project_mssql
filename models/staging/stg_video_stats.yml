@@ -32,10 +32,6 @@ models:
         description: "Date extracted from timestamp"
       - name: PUBLISHED_TIME
         description: "Time extracted from timestamp"
-      - name: SUBSCRIBERS
-        description: "Number of subscribers for the YouTube channel."
-        tests:
-          - not_null
       - name: Duration
         description: "Duration of the video"
         tests:
