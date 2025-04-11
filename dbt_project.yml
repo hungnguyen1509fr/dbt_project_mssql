@@ -14,4 +14,6 @@ clean-targets:
 models:
   my_dbt_project:
     +materialized: table
+  raw:
+    +materialized: table
 
