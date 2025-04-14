@@ -61,5 +61,4 @@ transformed AS (
     FROM source
 )
 
-SELECT TEAM, TITLE, published_date FROM transformed  
-ORDER BY published_date ASC
+SELECT * FROM transformed
