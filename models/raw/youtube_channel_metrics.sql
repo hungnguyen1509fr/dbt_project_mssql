@@ -9,5 +9,6 @@ SELECT
     $7::NUMBER AS total_videos,
     $8::TEXT AS country
 FROM 
-    @YOUTUBE.RAW.MY_INTERNAL_STAGE/youtube_CHANNEL_metrics.csv 
-    (FILE_FORMAT => 'YOUTUBE.RAW.CHANNEL')  
+    @YOUTUBE.RAW.MY_INTERNAL_STAGE/youtube_channel_metrics.csv 
+    (FILE_FORMAT => 'YOUTUBE.RAW.CHANNEL');  
+SELECT * FROM RAW.YOUTUBE_CHANNEL_METRICS
