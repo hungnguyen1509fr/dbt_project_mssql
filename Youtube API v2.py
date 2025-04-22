@@ -6,7 +6,7 @@ from datetime import datetime
 import isodate
 
 # Your YouTube Data API key
-API_KEY = 'AIzaSyCDn8yLBRHAd2-A5QTtqrhBqtNpW-relzg'
+API_KEY = ' Add you API KEY '
 
 # Define brands and their YouTube channel IDs
 channels = {
